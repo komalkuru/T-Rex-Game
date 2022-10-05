@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float playerSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private bool isRunning = false;
     [SerializeField] Animator animator;
     
     void Start()
@@ -15,19 +13,11 @@ public class PlayerController : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
     }
-   
-    void Update()
-    {
-        isRunning = true;   
-    }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (isRunning)
-        {
-            CharacterMovement();
-            PlayerJump();
-        }
+        CharacterMovement();
+        PlayerJump();        
     }
 
 
@@ -35,10 +25,9 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetBool("IsRunning", false);
+            SoundManager.Instance.Play(SoundManager.Sounds.PlayerJump);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-        animator.SetBool("IsRunning", true);
     }
     void CharacterMovement()
     {

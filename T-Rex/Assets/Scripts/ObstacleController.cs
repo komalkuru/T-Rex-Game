@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script manage al the obstacles.
+/// </summary>
 public class ObstacleController : MonoBehaviour
 {
     public GameObject obstacle1;
@@ -11,7 +14,6 @@ public class ObstacleController : MonoBehaviour
     public float obstacleEndPosition;
     public bool flag = false;
     public bool isGameStart;
-    private float obstaclePosition;
 
     private void Start()
     {
@@ -36,7 +38,6 @@ public class ObstacleController : MonoBehaviour
     {
         if (obstacle1.transform.position.x < obstacleEndPosition && flag == true)
         {
-            Debug.Log("game");
             obstacle1.SetActive(false);
             obstacle2.SetActive(true);
             obstacle4.SetActive(true);

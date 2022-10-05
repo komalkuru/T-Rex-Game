@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This script manage player's score and Highscore.
+/// </summary>
+
 public class ScoreManager : MonoBehaviour
 {
     public Text scoreText;
@@ -27,9 +31,14 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
        if(scoreIncreasing)
-        {
+       {
             scoreCount += pointsPerSecond * Time.deltaTime;
-        }
+
+            if ((int)scoreCount != 0 && (int)scoreCount % 100 == 0)
+            {
+                SoundManager.Instance.Play(SoundManager.Sounds.Point);
+            }
+       }
 
         if(scoreCount > highscoreCount)
         {

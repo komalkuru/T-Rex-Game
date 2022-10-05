@@ -273,10 +273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2f117986cca9748a6a887b69ef7df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 15
-  jumpForce: 25
+  jumpForce: 22
   rb: {fileID: 761185399092444372}
-  isRunning: 0
   animator: {fileID: 761185399092444374}
 --- !u!114 &686044753
 MonoBehaviour:
@@ -292,3 +290,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 161662464}
   gameOverUI: {fileID: 0}
+  isGameOver: 0
+  birdController: {fileID: 0}
