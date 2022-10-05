@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetBool("IsRunning", false);
-            rb.velocity = Vector2.up * jumpForce;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
         animator.SetBool("IsRunning", true);
     }
